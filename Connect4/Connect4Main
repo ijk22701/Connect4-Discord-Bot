@@ -1,0 +1,24 @@
+import discord
+import os
+import random
+from discord.ext import commands
+import datetime
+from datetime import datetime
+from Connect4App import connect4Main
+
+bot = commands.Bot(command_prefix='!')
+
+@bot.event
+async def on_ready():
+    print("Bot is online")
+
+@bot.command(pass_context=True)
+async def clear(ctx):
+    await ctx.channel.purge()
+
+@bot.command(pass_context = True)
+async def Connect4(ctx):
+    await connect4Main(ctx, bot)
+
+
+bot.run('OTY3Njc0OTUxODU3NDcxNTM4.Gi7ksI.dwX_9IzDfJ1h-XiPftXOaJxcUbdSNNQ8_0oRRk')
