@@ -9,6 +9,9 @@ boardBackgroundEmoji = '▫️'
 boardLength = 7
 boardHeight = 6
 
+
+#TODO - improve readability of the main method. Limit the amount of print statements
+#TODO - more comments throughout program
 async def connect4Main(ctx, bot):
     global purgeCount
     global boardBackgroundEmoji
@@ -166,6 +169,9 @@ async def decodeUserChoice(userChoiceEmoji):
         case '7️⃣':
             return 6    
 
+#TODO - Implement improved checkForWin algorithm
+#Attempt writing an algorithm that only checks the newest placed piece for matches rather than the entire board
+#big O notation of current algorithm is o(n^2), not good. New algorithm would not change execution length with a different sized board. 
 async def checkForWin(ctx, board, player):
     global boardBackgroundEmoji
     
