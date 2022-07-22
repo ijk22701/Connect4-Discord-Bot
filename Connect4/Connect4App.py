@@ -1,8 +1,3 @@
-from email.policy import default
-from re import purge
-from turtle import delay
-import discord
-from discord.ext import commands
 
 purgeCount = int(3)
 boardBackgroundEmoji = '▫️'
