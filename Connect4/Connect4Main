@@ -12,13 +12,9 @@ bot = commands.Bot(command_prefix='!')
 async def on_ready():
     print("Bot is online")
 
-@bot.command(pass_context=True)
-async def clear(ctx):
-    await ctx.channel.purge()
-
 @bot.command(pass_context = True)
 async def Connect4(ctx):
     await connect4Main(ctx, bot)
 
 
-bot.run('OTY3Njc0OTUxODU3NDcxNTM4.Gi7ksI.dwX_9IzDfJ1h-XiPftXOaJxcUbdSNNQ8_0oRRk')
+bot.run('OTY3Njc0OTUxODU3NDcxNTM4.GFpIa5.5Vsg5HO-Mf1SC20JVw8QbpjctHjsZuE5-wVPb4')
