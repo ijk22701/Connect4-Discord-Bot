@@ -26,7 +26,7 @@ async def connect4Main(ctx, bot):
         await ctx.send("Please select a different emoji than player 1.")
         player2 = await getUserCharacter(ctx, bot, currentPlayer + 1)
         purgeCount += int(2)
-    #await ctx.channel.purge(limit=int(purgeCount))
+    await ctx.channel.purge(limit=int(purgeCount))
     print(f'purged {purgeCount}')
     await ctx.send(f"Player 1 chose {player1}\nPlayer 2 chose {player2}")
     turnCounter = 0
@@ -37,7 +37,7 @@ async def connect4Main(ctx, bot):
         xCoordinate = await decodeUserChoice(userChoice)
         yCoordinate = await getPlacementCoordinates(xCoordinate, board)
         print(f'{xCoordinate}, {yCoordinate}')
-        #await ctx.channel.purge(limit=int(2))
+        await ctx.channel.purge(limit=int(2))
         if turnCounter % 2 == 0:
             board = await modifyBoard(board, yCoordinate, xCoordinate, player1)
             winCondition = await checkForWin(ctx, board, player1)
@@ -67,7 +67,7 @@ async def getUserCharacter(ctx, bot, currentPlayer):
         if reaction.emoji == '▫️':
             await ctx.send(f"Cannot choose \"{boardBackgroundEmoji}\", please choose another emoji.")
             global purgeCount
-            #purgeCount += int(2)
+            purgeCount += int(2)
         else:
             validEmoji = True
 
@@ -213,8 +213,8 @@ async def checkForWin(ctx, board, player):
 
     #blackout (all squares used)
     defaultSquareExists = False
-    for i in range(len(board) - 3): #height
-        for j in range(len(board[i]) -3): #width
+    for i in range(len(board)): #height
+        for j in range(len(board[i])): #width
             if board[i][j] == boardBackgroundEmoji:
                 defaultSquareExists = True
     if not defaultSquareExists:
